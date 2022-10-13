@@ -1,6 +1,9 @@
 package com.example.kafka_docker_compose;
 
 
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,10 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequiredArgsConstructor(onConstructor = @__(@Autowired))
-//@Slf4j
-@RequestMapping("/r")
-//@Data
+@Slf4j
+@RequestMapping("/api/kafka")
+@Data
 public class RestControllers {
 
 
@@ -23,8 +25,8 @@ public class RestControllers {
     }
 
     @PostMapping("/publish")
-    public void msjToTopic(@RequestParam("message") String messages){
-        //log.info("in the method");
+    public void sendMessageToTopic(@RequestParam("message") String messages){
+        log.info("in the method");
         this.producer.sendMessage(messages);
     }
 }
