@@ -14,7 +14,7 @@ services:
     ports:
       - 9092:9092
     environment:
-      # ВЫБОРОЧНАЯ НАСТРОЙКА
+      # ВЫБОРОЧНАЯ НАСТРОЙКА!
       KAFKA_ADVERTISED_HOST_NAME: localhost
       # ОБЯЗАТЕЛЬНАЯ НАСТРОЙКА как подключаться к Zookeeper для управления состоянием кластера Kafka. 
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
