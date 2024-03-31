@@ -1,5 +1,9 @@
 version: '3'
 
+# Если  Spring Boot приложение не имеет явных настроек(app.yml) для соединения с Kafka,
+# то по умолчанию запросы будут отправляться на локальный порт 9092, где обычно работает Kafka.
+#а потом пеиенаправляться на порт контейнера 9092:9092
+
 services:
   zookeeper:
     image: wurstmeister/zookeeper
@@ -13,6 +17,7 @@ services:
     container_name: kafka
     ports:
       - 9092:9092
+ #порт становится занятым после запуска кафки сервера а на локалке мы ничего не запускали
     environment:
       # ВЫБОРОЧНАЯ НАСТРОЙКА!
       KAFKA_ADVERTISED_HOST_NAME: localhost
